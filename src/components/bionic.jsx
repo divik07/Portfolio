@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -9,6 +9,7 @@ const fadeInUp = {
 
 const BIONIC = () => {
   const navigate = useNavigate();
+  const [currentProduct, setCurrentProduct] = useState(0);
   const images = ['/bionic.png', '/bionic1.png', '/bionic2.png'];
   const skills = [
     'Mechanical Design',
@@ -21,6 +22,10 @@ const BIONIC = () => {
     'Battery Selection',
     'MATLAB'
   ];
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
   return (
     <section
@@ -58,7 +63,7 @@ const BIONIC = () => {
         viewport={{ once: true, amount: 0.2 }}
       >
         <img
-          src={images[0]}
+          src={`${import.meta.env.BASE_URL}${images[0]}`}
           alt="Bionic System Overview"
           className="float-right ml-8 mb-4 w-full md:w-2/5 object-contain rounded-xl shadow-md"
         />
@@ -68,7 +73,7 @@ const BIONIC = () => {
           </motion.p>
 
           <img
-            src={images[1]}
+            src={`${import.meta.env.BASE_URL}${images[1]}`}
             alt="Path Actuator Optimization"
             className="float-left mr-8 mb-4 w-full md:w-1/4 object-contain rounded-xl shadow-md"
           />
@@ -78,7 +83,7 @@ const BIONIC = () => {
           </motion.p>
 
           <img
-            src={images[2]}
+            src={`${import.meta.env.BASE_URL}${images[2]}`}
             alt="Concept and Transmission"
             className="float-right ml-8 mb-4 w-full md:w-1/3 object-contain rounded-xl shadow-md"
           />

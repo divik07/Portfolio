@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -9,6 +9,7 @@ const fadeInUp = {
 
 const SQUARE = () => {
   const navigate = useNavigate();
+  const [currentProduct, setCurrentProduct] = useState(0);
   const galleryImages = ['square1.png', 'square2.png', 'square3.png'];
   const skills = [
     'SolidWorks',
@@ -20,6 +21,10 @@ const SQUARE = () => {
     'Gripper Mechanism Design',
     'Prototyping',
   ];
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
   return (
     <section
@@ -57,7 +62,7 @@ const SQUARE = () => {
         viewport={{ once: true, amount: 0.2 }}
       >
         <img
-          src="/5dof.png"
+          src={`${import.meta.env.BASE_URL}5dof.png`}
           alt="SQUARE side view"
           className="float-right ml-8 mb-4 w-full md:w-1/3 object-contain rounded-xl shadow-md"
         />
@@ -67,7 +72,7 @@ const SQUARE = () => {
           </motion.p>
 
           <img
-            src="/square1.png"
+            src={`${import.meta.env.BASE_URL}square1.png`}
             alt="SQUARE isometric view"
             className="float-left mr-8 mb-4 w-full md:w-1/4 object-contain rounded-xl shadow-md"
           />
@@ -77,7 +82,7 @@ const SQUARE = () => {
           </motion.p>
 
           <img
-            src="/square2.png"
+            src={`${import.meta.env.BASE_URL}square2.png`}
             alt="Forward Kinematics"
             className="float-right ml-8 mb-4 w-full md:w-1/2 object-contain rounded-xl shadow-md"
           />
@@ -94,7 +99,7 @@ const SQUARE = () => {
             <div className="md:w-1/2 w-full mb-8 md:mb-0">
               <h3 className="text-2xl font-semibold text-blue-200 mb-4 text-center md:text-left">Video Demo</h3>
               <img
-                src="/square-demo.gif"
+                src={`${import.meta.env.BASE_URL}square-demo.gif`}
                 alt="SQUARE Robot Demo"
                 className="w-full rounded-xl border border-gray-700 shadow-md"
               />

@@ -10,8 +10,8 @@ const experienceData = [
     location: 'Bangalore, IN',
     date: 'Jul 2020 - Aug 2023',
     summary: 'Led end-to-end mechanical design of medical devices, including syringes, needles, disinfecting caps, and electro-mechanical device. Created detailed CAD models with GD&T and performed CAE simulations to validate product functional characteristics. Planned and executed design verification activities—developing protocols, test methods, custom fixtures, and MSA plans. Applied statistical tools like Minitab for data-driven decision-making. Drove innovation in medical device design by developing novel concepts, prototyping functional models, and leading rigorous testing. Filed 9 patents and delivered 22 invention disclosures through innovative design solutions.',
-    link: '/experience/bd',
-    image: '/bd.png'
+    link: '/BD',
+    image: `${import.meta.env.BASE_URL}bd.png`
   },
   {
     title: 'Engineer Intern',
@@ -20,25 +20,25 @@ const experienceData = [
     date: 'May 2019 - Jun 2019',
     summary: 'Drove a 15% efficiency improvement in a mechanical press through strategic redesign of key components: connecting rod, gears box, and counterbalance cylinders. Minimized machine downtime, through optimized component design',
     link: null,
-    image: '/ISGEC.png'
+    image: `${import.meta.env.BASE_URL}ISGEC.png`
   },
   {
     title: 'Research Intern',
     company: 'Aeronautical Development Establishment (ADE)',
     location: 'Bangalore, IN',
     date: 'May 2018 - Jul 2018',
-    summary: 'Performed CFD simulations of a two-element wing in ANSYS Fluent at various flow Reynolds numbers, calculated aerodynamic characteristics, and proposed a cove-tab design improving lift-to-drag ratio by 9%',
-    link: '/experience/ade',
-    image: '/ade.png'
+    summary:  'Performed CFD simulations of a two-element wing in ANSYS Fluent at various flow Reynolds numbers, calculated aerodynamic characteristics, and proposed a cove-tab design improving lift-to-drag ratio by 9%',
+    link: '/ADE',
+    image: `${import.meta.env.BASE_URL}ade.png`
   },
   {
     title: 'Head of Design Department',
     company: 'ASME Projects Team, VIT',
     location: 'Vellore, IN',
     date: 'Jan 2017 - Jan 2019',
-    summary: 'Contributed to the design and fabrication of innovative robots and radio-controlled airplanes for diverse applications. Provided strategic direction and technical expertise, leading team to winning multiple aeromodelling competition',
+    summary:  'Contributed to the design and fabrication of innovative robots and radio-controlled airplanes for diverse applications. Provided strategic direction and technical expertise, leading team to winning multiple aeromodelling competition',
     link: null,
-    image: '/asme.png'
+    image: `${import.meta.env.BASE_URL}asme.png`
   }
 ];
 
@@ -64,7 +64,7 @@ const Experience = () => {
               contentArrowStyle={{ borderRight: '7px solid rgba(255, 255, 255, 0.05)' }}
               date={<div className={`text-sm text-gray-400 ${!isLeft ? 'pl-95 text-left' : ''}`}>{exp.date}</div>}
               iconStyle={{ background: '#f3f4f6', color: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-              icon={<img src={exp.image} alt={exp.company} className="w-20 h-20 rounded-full object-contain" />}
+              icon={<img src={exp.image} alt={exp.company} className="w-15 h-15 rounded-full object-contain" />}
             >
               <div className="relative text-left">
                 <h3 className="text-xl font-bold text-blue-200">{exp.title}</h3>

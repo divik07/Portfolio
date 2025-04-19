@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const educationData = [
   {
     school: 'University of California, Los Angeles (UCLA)',
-    icon: '/ucla-logo.png',
+    icon: './ucla-logo.png',
     degree: 'MS in Mechanical Engineering',
     time: 'Sep 2023 – Dec 2024',
     location: 'Los Angeles, CA',
@@ -15,7 +15,7 @@ const educationData = [
   },
   {
     school: 'Vellore Institute of Technology (VIT)',
-    icon: '/VIT-logo.png',
+    icon: './VIT-logo.png',
     degree: 'B.Tech in Mechanical Engineering',
     time: 'Jul 2016 – Jun 2020',
     location: 'Vellore, India',

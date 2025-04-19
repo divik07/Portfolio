@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { Autoplay, Navigation  } from 'swiper/modules';
 
 const ADEDetail = () => {
   const navigate = useNavigate();
@@ -52,7 +55,7 @@ const ADEDetail = () => {
         {/* First Image float right */}
         <div className="md:float-right md:w-1/3 mb-8 md:mb-0 ml-0 md:ml-8">
           <img
-            src="/ADEMesh.png"
+            src={`${import.meta.env.BASE_URL}ADEMesh.png`}
             alt="Mesh Detail"
             className="w-full h-auto object-contain rounded-lg shadow-lg"
           />
@@ -75,7 +78,7 @@ const ADEDetail = () => {
         {/* Second Image float left */}
         <div className="md:float-left md:w-1/3 mb-8 md:mb-0 mr-0 md:mr-8">
           <img
-            src="/ADEContour.png"
+            src={`${import.meta.env.BASE_URL}ADEContour.png`}
             alt="Velocity Contour"
             className="w-full h-auto object-contain rounded-lg shadow-lg"
           />

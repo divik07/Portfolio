@@ -1,11 +1,12 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import 'katex/dist/katex.min.css';
 import { BlockMath, InlineMath } from 'react-katex';
 
 const Catapult = () => {
   const navigate = useNavigate();
+  const [currentProduct, setCurrentProduct] = useState(0);
   const skills = [
     'Mathematical Modeling',
     'Stretching & Bending Energy Analysis',
@@ -14,6 +15,10 @@ const Catapult = () => {
     'Numerical Simulation',
     'Dynamical Systems'
   ];
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
   return (
     <section
@@ -53,7 +58,7 @@ const Catapult = () => {
         <div className="text-gray-300 text-lg leading-relaxed space-y-6 text-justify">
           <div className="float-right ml-8 mb-6 w-full md:w-1/2">
             <img
-              src="/Catapult-gif.gif"
+              src={`${import.meta.env.BASE_URL}Catapult-gif.gif`}
               alt="Catapult Simulation"
               className="rounded-xl border border-gray-700 shadow-md"
             />
