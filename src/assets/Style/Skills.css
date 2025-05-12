@@ -1,0 +1,96 @@
+/* Full-width section */
+.portfolio-skills-section { 
+    width: 100vw;
+    min-height: 80vh;
+    margin-top: 0;
+    margin-left: calc((100% - 100vw) / 2);
+    box-sizing: border-box;
+    display: grid;
+    position: relative;
+    overflow-x: hidden;
+    padding: 0.5rem 1.5rem;
+    background-color: #fff;
+}
+
+/* Inner container, caps at 1100px */
+.portfolio-skills-box {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Heading */
+.portfolio-skills-box > h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+    max-width: 1100px;
+    color: #111;
+}
+.dark .portfolio-skills-box > h3 {
+    color: #93c5fd;
+}
+
+/* Wrapper boxes */
+.portfolio-skills-box .box {
+    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+.dark .portfolio-skills-box .box {
+    background: rgba(30,64,175,0.2);
+    border-color: #374151;
+}
+
+/* Category spacing */
+.portfolio-skills-box .skill-category + .skill-category {
+    margin-top: 1.5rem;
+}
+
+/* Category title */
+.portfolio-skills-box .category-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: left;
+    color: #111;
+    margin-bottom: 0.75rem;
+}
+.dark .portfolio-skills-box .category-title {
+    color: #93c5fd;
+}
+
+/* Skill list */
+.portfolio-skills-box .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Skill pills */
+.portfolio-skills-box .skill-pill {
+    background: #e5e7eb;
+    color: #374151;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    display: inline-block;
+}
+.dark .portfolio-skills-box .skill-pill {
+    background: hsl(221, 83%, 53%) !important;
+    color: #fff !important;
+}
+
+/* Mobile wrap */
+@media (max-width: 640px) {
+    .portfolio-skills-box .skill-list {
+        justify-content: flex-start;
+    }
+}
+
+/* Dark‐mode section background */
+.dark .portfolio-skills-section {
+    background: linear-gradient(to top, #000, #111827, #1a2b42);
+    color: #fff;
+}

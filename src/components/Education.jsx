@@ -1,107 +1,120 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+// src/components/Education.jsx
+import React, { useState } from 'react';
+import 'react-vertical-timeline-component/style.min.css';
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
+import '../assets/Style/Education.css';
 
-const educationData = [
+// Use BASE_URL for public assets
+const baseUrl = import.meta.env.BASE_URL;
+
+const education = [
   {
-    school: 'University of California, Los Angeles (UCLA)',
-    icon: './ucla-logo.png',
     degree: 'MS in Mechanical Engineering',
-    time: 'Sep 2023 – Dec 2024',
-    location: 'Los Angeles, CA',
-    highlights: [
-      'Concentration in Design, Manufacturing, and Robotics. GPA: 4.0/4.0',
-      'Coursework: Kinematics of Robotic Systems | Dynamics of Robotic Systems | Control of Robotic Systems | Mechanics of Flexible Structures and Soft Robots | Orthopaedic Biomechanical Engineering | Complaint Mechanism Design | Bionic Systems Engineering | Analytical Fracture Mechanics | Linear Dynamic Systems | Computational Methods in Structural Mechanics'
-    ]
+    institution: 'University of California, Los Angeles (UCLA)',
+    date: 'Sep 2023 – Dec 2024',
+    summary: 'Concentration in Design, Manufacturing, and Robotics.',
+    gpa: '4.0/4.0',
+    coursework: [
+      'Kinematics of Robotic Systems',
+      'Dynamics of Robotic Systems',
+      'Control of Robotic Systems',
+      'Mechanics of Flexible Structures and Soft Robots',
+      'Orthopaedic Biomechanical Engineering',
+      'Complaint Mechanism Design',
+      'Bionic Systems Engineering',
+      'Analytical Fracture Mechanics',
+      'Linear Dynamic Systems',
+      'Computational Methods in Structural Mechanics'
+    ],
+    logo: `${baseUrl}ucla-logo.png`,
+    collapsible: true
   },
   {
-    school: 'Vellore Institute of Technology (VIT)',
-    icon: './VIT-logo.png',
     degree: 'B.Tech in Mechanical Engineering',
-    time: 'Jul 2016 – Jun 2020',
-    location: 'Vellore, India',
-    highlights: [
-      'Graduated with Distinction. GPA: 3.91/4.0',
-      'Drag and heat-flux reduction using counterflow jet and spike - Analysis of their equivalence for a blunt cone geometry at Mach 8.” Journal of Applied Fluid Mechanics, Volume 14, No. 2, pp. 375-388'
-    ]
+    institution: 'Vellore Institute of Technology (VIT)',
+    date: 'Jul 2016 – Jun 2020',
+    gpa: '3.91/4.0',
+    coursework: [],
+    publications: [
+      '"Drag and heat-flux reduction using counterflow jet and spike - Analysis of their equivalence for a blunt cone geometry at Mach 8." Journal of Applied Fluid Mechanics, Volume 14, No. 2, pp. 375-388'
+    ],
+    logo: `${baseUrl}VIT-logo.png`,
+    collapsible: true
   }
 ];
 
-const fadeSlideUp = {
-  hidden: { opacity: 0, y: 60 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: 'easeOut' }
-  }
-};
+function EducationItem({ edu }) {
+  const [open, setOpen] = useState(false);
+  const hasDetails = (edu.coursework && edu.coursework.length > 0) || (edu.publications && edu.publications.length > 0);
 
-const Education = () => {
   return (
-    <motion.section
-      id="education"
-      className="relative w-screen min-h-screen bg-gradient-to-b from-slate-900 via-black to-gray-900 text-gray-100 px-6 md:px-24 py-24"
-      style={{ marginLeft: "calc((100% - 100vw)/2)" }}
-      variants={fadeSlideUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
+    <VerticalTimelineElement
+      date={edu.date}
+      icon={<div />}
+      iconStyle={{
+        background: '#f3f4f6',
+        color: '#000',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundImage: `url(${edu.logo})`,
+        backgroundSize: 'contain',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
     >
-      {/* Background Blobs */}
-      <div className="absolute -top-40 -left-40 w-[400px] h-[400px] bg-blue-900 opacity-30 rounded-full blur-2xl"></div>
-      <div className="absolute -bottom-32 right-0 w-[350px] h-[350px] bg-purple-900 opacity-20 rounded-full blur-2xl"></div>
-      <div className="absolute top-1/4 left-[15%] w-[200px] h-[200px] bg-yellow-700 opacity-10 rounded-full blur-xl"></div>
-      <div className="absolute bottom-[10%] left-[40%] w-[180px] h-[180px] bg-pink-800 opacity-10 rounded-full blur-xl"></div>
+      <h3 className="vertical-timeline-element-title">{edu.degree}</h3>
+      <h4 className="vertical-timeline-element-subtitle">{edu.institution}</h4>
+      {edu.summary && <p className="edu-summary">{edu.summary}</p>}
+      {edu.gpa && <p className="edu-gpa">GPA: {edu.gpa}</p>}
 
-      <motion.h2
-        className="text-4xl md:text-5xl font-bold mb-16 text-blue-300 text-left px-6 md:px-24"
-        variants={fadeSlideUp}
-      >
-        Education
-      </motion.h2>
-
-      <motion.div
-        className="space-y-12 max-w-5xl mx-auto"
-        variants={{
-          hidden: {},
-          visible: {
-            transition: { staggerChildren: 0.25 }
-          }
-        }}
-      >
-        {educationData.map((edu, index) => (
-          <motion.div
-            key={index}
-            className="flex flex-col md:flex-row items-start gap-6 bg-white/5 p-6 rounded-xl shadow border border-gray-700 backdrop-blur-md text-left"
-            variants={fadeSlideUp}
+      {edu.collapsible && hasDetails && (
+        <>
+          <button
+            className="details-toggle"
+            onClick={() => setOpen(prev => !prev)}
           >
-            <motion.img
-              src={edu.icon}
-              alt={edu.school}
-              className="w-35 h-35 object-contain rounded-full border border-gray-400"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-            />
-            <div className="text-left">
-              <h3 className="text-2xl md:text-3xl font-semibold text-blue-200 mb-1">{edu.school}</h3>
-              <p className="text-md text-gray-400 italic mb-2">
-                {edu.degree} <span className="mx-2 text-gray-600">|</span> {edu.time}
-              </p>
-              <p className="text-sm text-gray-500 mb-4">{edu.location}</p>
-              <ul className="list-disc list-inside space-y-1 text-sm md:text-base text-gray-300">
-                {edu.highlights.map((point, idx) => (
-                  <motion.li key={idx} variants={fadeSlideUp}>
-                    {point}
-                  </motion.li>
-                ))}
-              </ul>
+            {open ? 'Hide Details' : 'Show Details'}
+          </button>
+          {open && (
+            <div className="edu-coursework">
+              {edu.coursework && edu.coursework.length > 0 && (
+                <>
+                  <h5>Relevant Coursework:</h5>
+                  <ul>
+                    {edu.coursework.map((course, i) => (
+                      <li key={i}>{course}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+              {edu.publications && edu.publications.length > 0 && (
+                <div className="edu-publications">
+                  <h5>Publications:</h5>
+                  <ul>
+                    {edu.publications.map((pub, i) => (
+                      <li key={i}>{pub}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
-          </motion.div>
-        ))}
-      </motion.div>
-    </motion.section>
+          )}
+        </>
+      )}
+    </VerticalTimelineElement>
   );
-};
+}
 
-export default Education;
+export default function Education() {
+  return (
+    <section id="education" className="education-section">
+      <h2 className="education-heading">Education</h2>
+      <VerticalTimeline className="education-timeline">
+        {education.map((edu, idx) => (
+          <EducationItem edu={edu} key={idx} />
+        ))}
+      </VerticalTimeline>
+    </section>
+  );
+}

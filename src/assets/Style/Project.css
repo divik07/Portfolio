@@ -1,0 +1,117 @@
+/* Projects.css */
+
+/* Light Mode (default) */
+#projects {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  margin-left: calc((100% - 100vw) / 2);
+  background-color: #ffffff;
+  color: #1f2937; /* gray-800 */
+  padding: 6rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  #projects {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+.projects-heading {
+  font-size: 3rem;      /* text-5xl */
+  font-weight: bold;
+  color: #111827;       /* gray-900 */
+  margin-bottom: 4rem;
+}
+
+.projects-container {
+  display: flex;
+  gap: 2rem;            
+  overflow-x: scroll;   /* show scrollbar */
+  padding-bottom: 1rem; 
+}
+
+.project-card {
+  flex-shrink: 0;
+  width: 20rem;                     
+  background-color: #ffffff;
+  padding: 1.5rem;                  
+  border-radius: 0.75rem;           
+  border: 1px solid #e5e7eb;        
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.project-image {
+  width: 100%;
+  height: 11rem;       
+  object-fit: cover;
+  border-radius: 0.375rem; 
+  margin-bottom: 1rem; 
+}
+
+.project-title {
+  font-size: 1.5rem;   
+  font-weight: 600;    
+  color: #111827;      
+  margin-bottom: 0.5rem; 
+}
+
+.project-summary {
+  color: #4b5563;      
+  margin-bottom: 1rem; 
+}
+
+.project-link {
+  color: #1d4ed8;      
+  font-weight: 500;    
+  text-decoration: none;
+}
+.project-link:hover {
+  color: #2563eb;      
+}
+
+/* Mobile (Stacked) Layout */
+@media (max-width: 767px) {
+  .projects-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-x: visible;
+  }
+  .project-card {
+    width: 100%;
+  }
+}
+
+/* Dark Mode overrides */
+.dark #projects {
+  background-image: linear-gradient(to bottom, #000000, #111827);
+  color: #f3f4f6;
+}
+
+.dark .projects-heading {
+  color: #93c5fd;       
+}
+
+.dark .project-card {
+  background-color: rgba(255,255,255,0.05);
+  border: 1px solid #374151;        
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1),
+              0 2px 4px -1px rgba(0,0,0,0.06);
+}
+
+.dark .project-title {
+  color: #bfdbfe;      
+}
+
+.dark .project-summary {
+  color: #d1d5db;      
+}
+
+.dark .project-link {
+  color: #60a5fa;      
+}
+.dark .project-link:hover {
+  color: #3b82f6;      
+}

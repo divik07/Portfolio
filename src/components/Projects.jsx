@@ -1,7 +1,9 @@
+// Projects.jsx
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-
+import '../assets/Style/Project.css';
 const projects = [
   {
     title: 'Vegetable Chopping Robot (CHOPP)',
@@ -36,18 +38,11 @@ const projects = [
 ];
 
 const Projects = () => (
-  <section
-    id="projects"
-    className="relative w-screen min-h-screen bg-gradient-to-b from-slate-900 via-black to-gray-900 text-gray-100 px-6 md:px-24 py-24"
-    style={{ marginLeft: 'calc((100% - 100vw)/2)' }}
-  >
+  <section id="projects">
     {/* Background Blobs */}
-    <div className="absolute -top-40 -left-40 w-[400px] h-[400px] bg-blue-900 opacity-30 rounded-full blur-2xl"></div>
-    <div className="absolute top-1/4 left-[15%] w-[200px] h-[200px] bg-yellow-700 opacity-10 rounded-full blur-xl"></div>
-    <div className="absolute bottom-[10%] left-[40%] w-[180px] h-[180px] bg-pink-800 opacity-10 rounded-full blur-xl"></div>
 
     <motion.h2
-      className="text-5xl font-bold text-blue-300 mb-16"
+      className="projects-heading"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -55,11 +50,11 @@ const Projects = () => (
       Selected Projects
     </motion.h2>
 
-    <div className="flex space-x-8 overflow-x-auto pb-4 scrollbar-hide">
+    <div className="projects-container">
       {projects.map((p, i) => (
         <motion.div
           key={i}
-          className="flex-shrink-0 w-80 bg-white/5 p-6 rounded-xl backdrop-blur-md border border-gray-700 shadow-md"
+          className="project-card"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: i * 0.2 }}
@@ -67,15 +62,12 @@ const Projects = () => (
           <img
             src={`${import.meta.env.BASE_URL}${p.img}`}
             alt={p.title}
-            className="w-full h-44 object-cover rounded-md mb-4"
+            className="project-image"
           />
-          <h3 className="text-2xl font-semibold text-blue-200 mb-2">{p.title}</h3>
-          <p className="text-gray-300 mb-4">{p.summary}</p>
+          <h3 className="project-title">{p.title}</h3>
+          <p className="project-summary">{p.summary}</p>
           {p.link && (
-            <Link
-              to={p.link}
-              className="text-blue-400 hover:text-blue-500 font-medium"
-            >
+            <Link to={p.link} className="project-link">
               Read more →
             </Link>
           )}

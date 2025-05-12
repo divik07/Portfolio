@@ -1,0 +1,193 @@
+/* src/assets/Style/ADEDetail.css */
+
+/* ───────────────────────────────────────────── */
+/* Light Mode (default)                         */
+/* ───────────────────────────────────────────── */
+#ade {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  margin-left: calc((100% - 100vw) / 2);
+  background-color: #ffffff;
+  color: #1f2937;            /* gray-800 */
+  padding: 3rem 1.5rem;      /* py-12 px-6 */
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  #ade {
+    padding: 3rem 6rem;      /* md:px-24 */
+  }
+}
+
+/* ───────────────────────────────────────────── */
+/* Dark Mode overrides                          */
+/* ───────────────────────────────────────────── */
+.dark #ade {
+  background: linear-gradient(to bottom, #0f172a, #000000, #111827);
+  color: #f3f4f6;            /* gray-100 */
+}
+
+/* ───────────────────────────────────────────── */
+/* Back Button                                  */
+/* ───────────────────────────────────────────── */
+#ade .back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6; /* blue-500 */
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  box-shadow:
+    0 4px 6px -1px rgba(0,0,0,0.1),
+    0 2px 4px -1px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 2rem;       /* mb-8 */
+}
+#ade .back-button:hover {
+  background-color: #2563eb; /* blue-600 */
+}
+#ade .back-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* ───────────────────────────────────────────── */
+/* Main Title                                   */
+/* ───────────────────────────────────────────── */
+.ade-title {
+  font-size: 2.25rem;        /* text-4xl */
+  font-weight: bold;
+  margin-bottom: 3rem;       /* mb-12 */
+  color: #111827;            /* gray-900 */
+  line-height: 1.2;
+}
+@media (min-width: 768px) {
+  .ade-title {
+    font-size: 3rem;         /* md:text-5xl */
+  }
+}
+.dark .ade-title {
+  color: #93c5fd;            /* blue-300 */
+}
+
+/* ───────────────────────────────────────────── */
+/* Subtitle (dates/location)                    */
+/* ───────────────────────────────────────────── */
+.ade-subtitle {
+  font-size: 1rem;           /* text-base */
+  color: #9ca3af;            /* gray-400 */
+  margin-bottom: 3rem;       /* mb-12 */
+  font-style: italic;
+}
+
+/* ───────────────────────────────────────────── */
+/* Floated Images                               */
+/* ───────────────────────────────────────────── */
+.ade-image-right,
+.ade-image-left {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 0.75rem;     /* rounded-xl */
+  box-shadow:
+    0 4px 6px -1px rgba(0,0,0,0.1),
+    0 2px 4px -1px rgba(0,0,0,0.06);
+  margin-bottom: 1rem;
+}
+.ade-image-right {
+  float: right;
+  margin-left: 2rem;          /* ml-8 */
+  max-width: 40%;             /* md:w-2/5 */
+}
+.ade-image-left {
+  float: left;
+  margin-right: 2rem;         /* mr-8 */
+  max-width: 40%;             /* md:w-2/5 */
+}
+@media (max-width: 767px) {
+  .ade-image-right,
+  .ade-image-left {
+    float: none;
+    margin: 1rem auto;
+    max-width: 100%;
+  }
+}
+
+/* ───────────────────────────────────────────── */
+/* Paragraph Text                               */
+/* ───────────────────────────────────────────── */
+.ade-text p {
+  color: #4b5563;             /* gray-600 */
+  font-size: 1.1rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;      /* space-y-6 */
+  text-align: justify;
+}
+.dark .ade-text p {
+  color: #d1d5db;             /* gray-300 */
+}
+
+/* ───────────────────────────────────────────── */
+/* Clear floats                                 */
+/* ───────────────────────────────────────────── */
+.clear-both {
+  clear: both;
+}
+
+/* ───────────────────────────────────────────── */
+/* Skills Section                               */
+/* ───────────────────────────────────────────── */
+.skills-container {
+  max-width: 48rem;           /* max-w-3xl */
+  margin: 2rem auto;          /* center + spacing */
+}
+.skills-title {
+  font-size: 1.875rem;        /* text-3xl */
+  font-weight: 600;
+  margin-bottom: 1.5rem;      /* mb-6 */
+  text-align: center;
+  color: #111827;             /* gray-900 */
+}
+.dark .skills-title {
+  color: #93c5fd;             /* blue-300 */
+}
+.skills-wrapper {
+  background-color: #f3f4f6;  /* gray-100 */
+  border: 1px solid #e5e7eb;  /* gray-200 */
+  border-radius: 0.75rem;     /* rounded-xl */
+  padding: 1.5rem;            /* p-6 */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.dark .skills-wrapper {
+  background-color: rgba(255,255,255,0.05);
+  border-color: #374151;      /* gray-700 */
+  backdrop-filter: blur(12px);
+}
+.skill-pill {
+  font-size: 0.875rem;        /* text-sm */
+  padding: 0.25rem 0.75rem;   /* px-3 py-1 */
+  background-color: #e5e7eb;  /* gray-200 */
+  color: #1f2937;             /* gray-800 */
+  border-radius: 9999px;      /* rounded-full */
+}
+.dark .skill-pill {
+  background-color: rgba(59,130,246,0.7);
+  color: #ffffff;
+}
+
+/* ───────────────────────────────────────────── */
+/* Mobile responsiveness                        */
+/* ───────────────────────────────────────────── */
+@media (max-width: 767px) {
+  #ade {
+    padding: 2rem 1rem;
+  }
+  .skills-wrapper {
+    padding: 1rem;
+  }
+}

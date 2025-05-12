@@ -1,0 +1,46 @@
+/* About.css */
+
+/* 1. Section base */
+.about-section {
+    margin-left: calc((100% - 100vw) / 2);
+    position: relative;
+    padding: 2rem 1.5rem;
+    width: 100vw;
+    min-height: 30%;
+    overflow: hidden;
+    background: #fff;
+    color: #000; /* black text in light mode */
+    text-align: center;
+  }
+  .dark .about-section {
+    background: linear-gradient(to bottom, #000, #111827, #1d2b3f);
+    color: #fff; /* white text in dark mode */
+  }
+  
+  /* 2. Background icons and blobs */
+  .about-bg-icons {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .about-bg-icons .gear,
+  .about-bg-icons .arm,
+  .about-bg-icons .blob-blue /* add other blobs classes here */ {
+    display: none;  /* hide all in light mode */
+  }
+  .dark .about-bg-icons .gear,
+  .dark .about-bg-icons .arm,
+  .dark .about-bg-icons .blob-blue /* add other blobs classes here */ {
+    display: block; /* show only in dark mode */
+  }
+  .about-bg-icons .gear.top-right { font-size: 10rem; top: 2.5rem; right: 2.5rem; transform: rotate(12deg); opacity: 0.15; position: absolute; }
+  .about-bg-icons .gear.bottom-left { font-size: 8rem; bottom: 3rem; left: 3rem; transform: rotate(-6deg); opacity: 0.15; position: absolute; }
+  .about-bg-icons .arm { font-size: 20rem; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.1; position: absolute; }
+  .about-bg-icons .blob-blue { position: absolute; top: -6rem; left: -6rem; width: 15rem; height: 15rem; background: rgba(59,130,246,0.2); border-radius: 50%; filter: blur(4rem); }
+  /* define other blobs similarly within .dark above */
+  
+  /* 3. Text container */
+  .about-content { position: relative; max-width: 1100px; margin: 0 auto; z-index: 10; }
+  .about-content h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 2.5rem; color: #000; /* black in light mode */ }
+  .dark .about-content h2 { color: #93c5fd; /* blue in dark mode */ }
+  .about-content p { font-size: 1.25rem; line-height: 1.6; margin-bottom: 1.5rem; text-align: justify; }

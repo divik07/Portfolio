@@ -1,0 +1,185 @@
+/* src/assets/Style/Experience.css */
+
+/* Light mode defaults */
+.experience-section {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  margin-left: calc((100% - 100vw)/2);
+  background-color: #fff;          /* white background */
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+  color: #111;                     /* black text */
+}
+
+.dark .experience-section {
+  /* remove the old full-bleed gradient */
+  background: none !important;
+  color: #fff;                     /* white text */
+  position: relative;              /* establish containing block for pseudo */
+  overflow: hidden;                /* clip the pseudo-element */
+}
+
+/* gradient pseudo-element, clipped to the section’s box */
+.dark .experience-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;                        /* top:0; right:0; bottom:0; left:0 */
+  background: linear-gradient(
+    to bottom,
+    #1d2b3f 0%,
+    #192232 5%,
+    #000 100%
+  );
+  z-index: -1;                     /* behind all content */
+}
+
+/* Section heading */
+.experience-section .experience-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: inherit;                  /* uses parent color */
+}
+
+.dark .experience-section .experience-heading {
+  color: #93c5fd;
+}
+
+/* Timeline line color */
+.experience-section .experience-timeline::before {
+  background-color: #000;          /* black in light */
+}
+.dark .experience-section .experience-timeline::before {
+  background-color: #fff;          /* white in dark */
+}
+
+/* Icon */
+.experience-section .exp-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+/* Title & subtitle */
+.experience-section .exp-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;                     /* black in light */
+}
+.dark .experience-section .exp-title {
+  color: #93c5fd;                  /* blue-300 in dark */
+}
+
+.experience-section .exp-subtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #374151;                  /* gray-700 in light */
+  margin-bottom: 0.5rem;
+}
+.dark .experience-section .exp-subtitle {
+  color: #fff;                     /* white in dark */
+}
+
+/* Date */
+.experience-section .exp-date {
+  font-size: 1rem;
+  color: #000;                     /* black in light */
+  text-align: left;
+}
+.dark .experience-section .exp-date {
+  color: #fff !important;          /* white in dark */
+}
+
+/* Content box styling (rounded edges) */
+.experience-section .vertical-timeline-element-content {
+  background: rgba(255,255,255,0.9); /* almost white in light */
+  color: inherit;
+  border: 1px solid #d1d5db;       /* gray-300 */
+  padding: 1rem;
+  border-radius: 0.5rem;           /* fillet edges */
+  text-align: justify;             /* justify all text */
+}
+.dark .experience-section .vertical-timeline-element-content {
+  background: rgba(255,255,255,0.05); /* translucent in dark */
+  border: 1px solid #374151;         /* gray-700 */
+}
+
+/* Arrow coloring */
+.experience-section .vertical-timeline-element-content::before {
+  border-right-color: rgba(255, 255, 255, 0);
+}
+.dark .experience-section .vertical-timeline-element-content::before {
+  border-right-color: rgba(255,255,255,0.05);
+}
+
+/* Details dropdown styling */
+.experience-section details.exp-details {
+  margin-top: 0.5rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.experience-section details.exp-details summary.exp-toggle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+  list-style: none;
+  margin-bottom: 0.5rem;
+}
+.experience-section details.exp-details summary.exp-toggle::-webkit-details-marker {
+  display: none;
+}
+.experience-section details.exp-details p,
+.experience-section details.exp-details ul,
+.experience-section details.exp-details li {
+  margin: 0.5rem 0;
+  text-align: justify;             /* force justify inside dropdown */
+}
+.experience-section details.exp-details ul {
+  padding-left: 1.5rem;
+}
+
+/* Read more link styling (when inside dropdown) */
+.experience-section .exp-link {
+  font-size: 1rem;
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.dark .experience-section .exp-link {
+  color: #60a5fa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .experience-section {
+    padding: 1rem;
+  }
+  .experience-section .experience-timeline::before {
+    left: 20px;
+  }
+  .experience-section .exp-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .experience-section .vertical-timeline-element-content {
+    margin-left: 40px !important;
+    padding: 0.75rem;
+  }
+  .experience-section .exp-title {
+    font-size: 1.125rem;
+  }
+  .experience-section .exp-subtitle {
+    font-size: 0.875rem;
+  }
+  .experience-section .exp-date,
+  .experience-section .exp-summary,
+  .experience-section .exp-link {
+    font-size: 0.75rem;
+  }
+}
