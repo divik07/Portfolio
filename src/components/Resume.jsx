@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import resumePdf from '../assets/Resume.pdf';
 
 const Resume = () => (
   <motion.section
@@ -13,14 +14,14 @@ const Resume = () => (
   >
     {/* Fullscreen PDF embed */}
     <object
-      data="./Resume.pdf"
+      data={resumePdf}
       type="application/pdf"
       className="w-full h-full"
     >
       <p className="p-4 text-center text-gray-600">
         Your browser does not support PDFs.{' '}
         <a
-          href="/resume.pdf"
+          href={resumePdf}
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 underline"

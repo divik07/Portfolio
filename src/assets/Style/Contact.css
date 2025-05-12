@@ -211,10 +211,10 @@
   .dark .blob {
     display: block;
     position: absolute;
-    border-radius: 50%;
+    border-radius: 10%;
     pointer-events: none;
-    filter: blur(40px);
-    opacity: 0.3;
+    filter: blur(100px);
+    opacity: 0.01;
     z-index: 0;
   }
   
